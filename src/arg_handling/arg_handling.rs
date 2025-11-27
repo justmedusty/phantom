@@ -113,7 +113,11 @@ pub mod arg_handling {
         let file_ext = args[file_no].as_str().split_at(".".parse().unwrap()).1;
 
         if(file_ext == "bmp"){
-            //return BmpImageParser::new(args[file_no].as_str());
+            let image_parser : ImageSupport<BmpImageParser> = ImageSupport{
+                encoding_support: BmpImageParser::new( args[file_no].as_str()),
+                image_file : File::open(args[file_no].as_str()).unwrap(),
+
+            }
         }
 
 
