@@ -18,13 +18,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 
 use std::fs::File;
 
-pub struct ImageSupport<T: FileEncodingSupport + FileEncodingAlgorithms> {
+pub struct ImageSupport<T: FileEncodingSupport> {
     pub(crate) image_file: File,
-    encoding: FileEncoding,
-    encoding_method: FileEncodingMethod,
-    file_encoding_function_derivation: FileEncodingFunctionDerivation,
-    operation: Operation,
-    data : Vec<u8>,
+    pub(crate) encoding: FileEncoding,
+    pub(crate) encoding_method: FileEncodingMethod,
+    pub(crate) file_encoding_function_derivation: FileEncodingFunctionDerivation,
+    pub(crate) operation: Operation,
+    pub(crate) data : Vec<u8>,
     pub(crate) encoding_support: T,
 }
 

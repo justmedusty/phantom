@@ -23,11 +23,11 @@ pub mod arg_handling {
     use std::fs::File;
     use std::process::exit;
     use crate::file_encoding_support;
-    use crate::file_encoding_support::file_encoding_support::{FileEncoding, FileEncodingMethod, FileEncodingSupport, ImageSupport, Operation};
+    use crate::file_encoding_support::file_encoding_support::{FileEncoding, FileEncodingFunctionDerivation, FileEncodingMethod, FileEncodingSupport, ImageSupport, Operation};
     use crate::filetype_support::bmp::BmpImageParser;
     use crate::filetype_support::filetype_support::FileType::Bmp;
 
-    pub fn parse_arguments<T: file_encoding_support::file_encoding_support::FileEncodingAlgorithms + file_encoding_support::file_encoding_support::FileEncodingSupport>(args: Vec<String>) -> ImageSupport<T> {
+    pub fn parse_arguments<T: file_encoding_support::file_encoding_support::FileEncodingSupport>(args: Vec<String>) -> ImageSupport<T> {
         if ( args.len() <= 2 && args[1] == "--help") {
             println!("Usage: maya encoding(Lsb,PixelValueDifferencing,Hamming) encoding-method(LeftRight, TopBottom, SinWave,CosWave, PolyFunc, FractalFunc) operation(embed/extract) <optional>'Message to be hidden'</optional> filename.ext(either the file to extract or the filename to embed into)");
             println!("This is a stegonagraphy tool for embedding and extracting secret messages within images.");
@@ -116,8 +116,14 @@ pub mod arg_handling {
             let image_parser : ImageSupport<BmpImageParser> = ImageSupport{
                 encoding_support: BmpImageParser::new( args[file_no].as_str()),
                 image_file : File::open(args[file_no].as_str()).unwrap(),
+                encoding :encoding,
+                encoding_method : encoding_method,
+                file_encoding_function_derivation: FileEncodingFunctionDerivation::KeyBased, //This isnt implemented yet
+                operation : operation,
+                data : message
+            };
 
-            }
+             return image_parser;
         }
 
 
