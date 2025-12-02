@@ -130,8 +130,8 @@ pub mod arg_handling {
 
 
 
-        todo!()
-
+        println!("Invalid file ext found! : {}", args[file_no]);
+        exit(ERROR);
 
 
 
