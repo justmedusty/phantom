@@ -19,7 +19,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 use std::env;
 use std::process::CommandArgs;
 use crate::arg_handling::arg_handling::arg_handling::parse_arguments;
-use crate::file_encoding_support::file_encoding_support::ImageSupport;
+use crate::file_encoding_support::file_encoding_support::{ImageSupport, Operation};
 
 mod filetype_support;
 mod file_encoding_support;
@@ -29,7 +29,12 @@ mod mathematics_support;
 fn main()  {
     let args : Vec<String> = env::args().collect();
 
-    let image_support : ImageSupport = parse_arguments(args);
+    let mut image_support: ImageSupport = parse_arguments(args);
+    
+    match image_support.operation {
+        Operation::Embed  => { image_support.encoding_support.embed_data(&mut image_support.data,image_support.encoding,image_support.encoding_method,image_support.file_encoding_function_derivation) },
+        Operation::Extract=> { image_support.encoding_support.retrieve_data(image_support.data, image_support.encoding, image_support.encoding_method, image_support.file_encoding_function_derivation) }
+    }
 
 
 }

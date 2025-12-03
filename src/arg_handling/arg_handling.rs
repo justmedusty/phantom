@@ -123,6 +123,8 @@ pub mod arg_handling {
                 data : message
             };
 
+
+
              return image_parser;
         }
 
