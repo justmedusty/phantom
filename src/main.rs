@@ -16,11 +16,20 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 
  */
+use std::env;
+use std::process::CommandArgs;
+use crate::arg_handling::arg_handling::arg_handling::parse_arguments;
+use crate::file_encoding_support::file_encoding_support::ImageSupport;
+
 mod filetype_support;
 mod file_encoding_support;
 mod arg_handling;
 mod mathematics_support;
 
-fn main() {
-    println!("Hello, world!");
+fn main()  {
+    let args : Vec<String> = env::args().collect();
+
+    let image_support : ImageSupport = parse_arguments(args);
+
+
 }
