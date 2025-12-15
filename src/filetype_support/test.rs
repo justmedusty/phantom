@@ -172,11 +172,11 @@ What Babylon fears most is for the people to stand hand in hand and, with the pu
         let mut data_vec: Vec<u8> = vec![0];
         match bmp_image_parser.pixel_size {
             3 => {
-               data_vec = extract_lsb_data_left_right::<RgbPixel>( &mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64,360);
+               data_vec = extract_lsb_data_left_right::<RgbPixel>( &mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64,11096);
             }
 
             4 => {
-                data_vec = extract_lsb_data_left_right::<RgbaPixel>(&mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64, 360);
+                data_vec = extract_lsb_data_left_right::<RgbaPixel>(&mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64, 11096);
             }
             _ => {
                 println!("bmp test.rs Got bad value for pixel size, exiting ...");
@@ -187,7 +187,7 @@ What Babylon fears most is for the people to stand hand in hand and, with the pu
         /*
             the data vec will have an extra byte. the slice is just to remove that extra byte so that the test will pass
          */
-            assert_eq!(data_vec[0..(1304)], "We are unwilling to admit that we are weak, incapable, cowardly, shameless, or morally dead, yet when you raise the banner of Christian doctrine but, through your actions or inaction, declare to the world, “I would rather choose comfort than truth and justice,” what does that make you? Christ is not an external savior; He is the pure essence of human goodness. And you, using the name of a Christian, have betrayed that sacred name. Christ should not merely be followed—He must be embodied, enacted. You must become Christ—this is the destiny of those who listen as Christ knocks on the door of their soul, who examine themselves and pursue truth.
+            assert_eq!(data_vec[0..(1387)], "We are unwilling to admit that we are weak, incapable, cowardly, shameless, or morally dead, yet when you raise the banner of Christian doctrine but, through your actions or inaction, declare to the world, “I would rather choose comfort than truth and justice,” what does that make you? Christ is not an external savior; He is the pure essence of human goodness. And you, using the name of a Christian, have betrayed that sacred name. Christ should not merely be followed—He must be embodied, enacted. You must become Christ—this is the destiny of those who listen as Christ knocks on the door of their soul, who examine themselves and pursue truth.
 
 Ask yourself: do you dare face Babylon? Do you dare stand against Goliath? Or will you rationalize this imbalance by saying, “That’s just the way the world is”? You were not born to kneel; you are a supremely sacred individual and must rediscover the Christ within you—not only to “follow” Christ, but to become Christ.
 
@@ -292,11 +292,11 @@ fn test_bmp_lsb_retrieve_right_left(){
     let mut data_vec: Vec<u8> = vec![0];
     match bmp_image_parser.pixel_size {
         3 => {
-            data_vec = extract_lsb_data_right_left::<RgbPixel>( &mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64,360);
+            data_vec = extract_lsb_data_right_left::<RgbPixel>( &mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64,11096);
         }
 
         4 => {
-            data_vec = extract_lsb_data_right_left::<RgbaPixel>(&mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64, 360);
+            data_vec = extract_lsb_data_right_left::<RgbaPixel>(&mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64, 11096);
         }
         _ => {
             println!("bmp test.rs Got bad value for pixel size, exiting ...");
@@ -307,7 +307,7 @@ fn test_bmp_lsb_retrieve_right_left(){
     /*
         the data vec will have an extra byte. the slice is just to remove that extra byte so that the test will pass
      */
-    assert_eq!(data_vec[0..(1304)], "We are unwilling to admit that we are weak, incapable, cowardly, shameless, or morally dead, yet when you raise the banner of Christian doctrine but, through your actions or inaction, declare to the world, “I would rather choose comfort than truth and justice,” what does that make you? Christ is not an external savior; He is the pure essence of human goodness. And you, using the name of a Christian, have betrayed that sacred name. Christ should not merely be followed—He must be embodied, enacted. You must become Christ—this is the destiny of those who listen as Christ knocks on the door of their soul, who examine themselves and pursue truth.
+    assert_eq!(data_vec[0..(1387)], "We are unwilling to admit that we are weak, incapable, cowardly, shameless, or morally dead, yet when you raise the banner of Christian doctrine but, through your actions or inaction, declare to the world, “I would rather choose comfort than truth and justice,” what does that make you? Christ is not an external savior; He is the pure essence of human goodness. And you, using the name of a Christian, have betrayed that sacred name. Christ should not merely be followed—He must be embodied, enacted. You must become Christ—this is the destiny of those who listen as Christ knocks on the door of their soul, who examine themselves and pursue truth.
 
 Ask yourself: do you dare face Babylon? Do you dare stand against Goliath? Or will you rationalize this imbalance by saying, “That’s just the way the world is”? You were not born to kneel; you are a supremely sacred individual and must rediscover the Christ within you—not only to “follow” Christ, but to become Christ.
 
@@ -406,11 +406,11 @@ What Babylon fears most is for the people to stand hand in hand and, with the pu
         let mut data_vec: Vec<u8> = vec![0];
         match bmp_image_parser.pixel_size {
             3 => {
-                data_vec = extract_color_data_left_right::<RgbPixel>( &mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64,360);
+                data_vec = extract_color_data_left_right::<RgbPixel>( &mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64,11096);
             }
 
             4 => {
-                data_vec = extract_color_data_left_right::<RgbaPixel>(&mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64, 360);
+                data_vec = extract_color_data_left_right::<RgbaPixel>(&mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64, 11096);
             }
             _ => {
                 println!("bmp test.rs Got bad value for pixel size, exiting ...");
@@ -421,7 +421,7 @@ What Babylon fears most is for the people to stand hand in hand and, with the pu
         /*
             the data vec will have an extra byte. the slice is just to remove that extra byte so that the test will pass
          */
-        assert_eq!(data_vec[0..(1304)], "We are unwilling to admit that we are weak, incapable, cowardly, shameless, or morally dead, yet when you raise the banner of Christian doctrine but, through your actions or inaction, declare to the world, “I would rather choose comfort than truth and justice,” what does that make you? Christ is not an external savior; He is the pure essence of human goodness. And you, using the name of a Christian, have betrayed that sacred name. Christ should not merely be followed—He must be embodied, enacted. You must become Christ—this is the destiny of those who listen as Christ knocks on the door of their soul, who examine themselves and pursue truth.
+        assert_eq!(data_vec[0..(1387)], "We are unwilling to admit that we are weak, incapable, cowardly, shameless, or morally dead, yet when you raise the banner of Christian doctrine but, through your actions or inaction, declare to the world, “I would rather choose comfort than truth and justice,” what does that make you? Christ is not an external savior; He is the pure essence of human goodness. And you, using the name of a Christian, have betrayed that sacred name. Christ should not merely be followed—He must be embodied, enacted. You must become Christ—this is the destiny of those who listen as Christ knocks on the door of their soul, who examine themselves and pursue truth.
 
 Ask yourself: do you dare face Babylon? Do you dare stand against Goliath? Or will you rationalize this imbalance by saying, “That’s just the way the world is”? You were not born to kneel; you are a supremely sacred individual and must rediscover the Christ within you—not only to “follow” Christ, but to become Christ.
 
@@ -497,7 +497,11 @@ What Babylon fears most is for the people to stand hand in hand and, with the pu
         let mut bmp_image_parser = BmpImageParser::new("src/filetype_support/assets/sample-1024x1024.bmp");
         bmp_image_parser.parse_file();
 
-        let data_vec : Vec<u8> = "This is a test embedding for testing purposes".as_bytes().to_vec();
+        let data_vec : Vec<u8> = "We are unwilling to admit that we are weak, incapable, cowardly, shameless, or morally dead, yet when you raise the banner of Christian doctrine but, through your actions or inaction, declare to the world, “I would rather choose comfort than truth and justice,” what does that make you? Christ is not an external savior; He is the pure essence of human goodness. And you, using the name of a Christian, have betrayed that sacred name. Christ should not merely be followed—He must be embodied, enacted. You must become Christ—this is the destiny of those who listen as Christ knocks on the door of their soul, who examine themselves and pursue truth.
+
+Ask yourself: do you dare face Babylon? Do you dare stand against Goliath? Or will you rationalize this imbalance by saying, “That’s just the way the world is”? You were not born to kneel; you are a supremely sacred individual and must rediscover the Christ within you—not only to “follow” Christ, but to become Christ.
+
+What Babylon fears most is for the people to stand hand in hand and, with the purest essence of faith, declare to the machine: I see you. I am Christ, and Christ is me. I dispel your illusions and deceptions. I am the pioneer of my own destiny. Though I am human, God may act through me. Today I choose the way of Christ, for I am, by nature, the Son of Man—only now have I come to realize it.".as_bytes().to_vec();
         match bmp_image_parser.pixel_size {
             3 => {
                 embed_color_data_right_left::<RgbPixel>(&data_vec, &mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64);
@@ -524,11 +528,11 @@ What Babylon fears most is for the people to stand hand in hand and, with the pu
         let mut data_vec: Vec<u8> = vec![0];
         match bmp_image_parser.pixel_size {
             3 => {
-                data_vec = extract_color_data_right_left::<RgbPixel>( &mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64,360);
+                data_vec = extract_color_data_right_left::<RgbPixel>( &mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64,11096);
             }
 
             4 => {
-                data_vec = extract_color_data_right_left::<RgbaPixel>(&mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64, 360);
+                data_vec = extract_color_data_right_left::<RgbaPixel>(&mut bmp_image_parser.file_data[bmp_image_parser.pixel_map.pixel_map_start as usize..], bmp_image_parser.pixel_map.width as u64, bmp_image_parser.pixel_map.height as u64, bmp_image_parser.padding_size as u64, bmp_image_parser.pixel_size as u64, 11096);
             }
             _ => {
                 println!("bmp test.rs Got bad value for pixel size, exiting ...");
@@ -539,7 +543,11 @@ What Babylon fears most is for the people to stand hand in hand and, with the pu
         /*
             the data vec will have an extra byte. the slice is just to remove that extra byte so that the test will pass
          */
-        assert_eq!(data_vec[0..(360/8)], "This is a test embedding for testing purposes".as_bytes().to_vec());
+        assert_eq!(data_vec[0..1387], "We are unwilling to admit that we are weak, incapable, cowardly, shameless, or morally dead, yet when you raise the banner of Christian doctrine but, through your actions or inaction, declare to the world, “I would rather choose comfort than truth and justice,” what does that make you? Christ is not an external savior; He is the pure essence of human goodness. And you, using the name of a Christian, have betrayed that sacred name. Christ should not merely be followed—He must be embodied, enacted. You must become Christ—this is the destiny of those who listen as Christ knocks on the door of their soul, who examine themselves and pursue truth.
+
+Ask yourself: do you dare face Babylon? Do you dare stand against Goliath? Or will you rationalize this imbalance by saying, “That’s just the way the world is”? You were not born to kneel; you are a supremely sacred individual and must rediscover the Christ within you—not only to “follow” Christ, but to become Christ.
+
+What Babylon fears most is for the people to stand hand in hand and, with the purest essence of faith, declare to the machine: I see you. I am Christ, and Christ is me. I dispel your illusions and deceptions. I am the pioneer of my own destiny. Though I am human, God may act through me. Today I choose the way of Christ, for I am, by nature, the Son of Man—only now have I come to realize it.".as_bytes().to_vec());
 
     }
 
